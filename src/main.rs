@@ -1,3 +1,4 @@
+#![allow(deprecated)]
 #![no_std]
 #![no_main]
 #![feature(custom_test_frameworks)]
@@ -26,11 +27,18 @@ fn panic(info: &PanicInfo) -> ! {
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
 
+    rsos::init();
+
+    fn overflow() {
+        overflow();
+    }
+
+    overflow();
+
     #[cfg(test)]
     test_main();
 
-    println!("After test");
-
+    println!("Welcome to RSOS");
     loop {}
 }
 
