@@ -29,12 +29,6 @@ pub extern "C" fn _start() -> ! {
 
     rsos::init();
 
-    fn overflow() {
-        overflow();
-    }
-
-    overflow();
-
     #[cfg(test)]
     test_main();
 
