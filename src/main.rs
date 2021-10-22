@@ -14,7 +14,7 @@ mod serial;
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    rsos::hlt_loop();
 }
 
 #[cfg(test)]
@@ -33,7 +33,7 @@ pub extern "C" fn _start() -> ! {
     test_main();
 
     println!("Welcome to RSOS");
-    loop {}
+    rsos::hlt_loop();
 }
 
 #[test_case]
